@@ -1,1 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sujung Hong — MICV Lab, Yonsei University</title>
+<meta name="description" content="Sujung Hong — M.S./Ph.D. student at the Medical Imaging & Computer Vision (MICV) Lab, Yonsei University. Research on visual representation learning, generative models, and vision–language models." />
+<meta name="author" content="Sujung Hong" />
 
+<!-- Open Graph / link previews -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sujung Hong — MICV Lab, Yonsei University" />
+<meta property="og:description" content="M.S./Ph.D. student researching visual representation learning, generative models, and vision–language models." />
+<meta property="og:image" content="profile.jpeg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Sujung Hong — MICV Lab, Yonsei University" />
+<meta name="twitter:description" content="M.S./Ph.D. student researching visual representation learning, generative models, and vision–language models." />
+<meta name="twitter:image" content="profile.jpeg" />
+
+<!-- Favicon (emoji as inline SVG) -->
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🔬&lt;/text&gt;&lt;/svg&gt;" />
+<style>
+  :root{
+    --ink:#16181d;
+    --muted:#6b7280;
+    --line:#e7e6e1;
+    --bg:#faf9f6;
+    --card:#fff;
+    --accent:#2b59ff;
+    --accent-soft:#eef2ff;
+    --max:880px;
+    --font:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:var(--font); color:var(--ink); background:var(--bg);
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--accent); text-decoration:none; }
+  a:hover{ text-decoration:underline; }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 24px; }
+
+  /* ===== Nav ===== */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,249,246,.82); backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{ display:flex; align-items:center; height:58px; }
+  nav .brand{ font-weight:700; color:var(--ink); letter-spacing:-.01em; }
+  nav .links{ margin-left:auto; display:flex; gap:26px; font-size:15px; }
+  nav .links a{ color:var(--muted); position:relative; transition:color .2s; }
+  nav .links a:hover{ color:var(--ink); text-decoration:none; }
+  nav .links a.active{ color:var(--ink); }
+  nav .links a.active::after{
+    content:""; position:absolute; left:0; right:0; bottom:-19px; height:2px;
+    background:var(--accent); border-radius:2px;
+  }
+  @media(max-width:640px){ nav .links{ gap:16px; font-size:14px; } nav .links .hide{ display:none; } }
+
+  /* ===== Hero ===== */
+  .hero{ padding:64px 0 48px; display:flex; gap:40px; align-items:flex-start; }
+  .hero-left{ width:160px; flex-shrink:0; display:flex; flex-direction:column; align-items:center; gap:16px; }
+  .hero-main{ flex:1; }
+  .hero-left .status{ display:flex; align-items:center; gap:7px; font-size:12.5px; color:var(--muted); }
+  .hero-left .status .dot{ width:7px; height:7px; border-radius:50%; background:#34c759; box-shadow:0 0 0 3px rgba(52,199,89,.18); }
+  .hero-left .social{ margin-top:0; flex-direction:column; flex-wrap:nowrap; width:100%; gap:8px; }
+  .icon-row{ display:flex; width:100%; justify-content:space-between; }
+  .icon-row .icon-only{ width:30px; height:30px; }
+  .icon-row .icon-only svg{ width:15px; height:15px; }
+  .long-btn{
+    display:flex; align-items:center; justify-content:center; gap:8px; width:100%;
+    padding:9px 10px; border:1px solid var(--line); border-radius:9px; background:var(--card);
+    font-size:13.5px; font-weight:500; color:var(--ink);
+    transition:transform .15s ease, border-color .2s, box-shadow .2s;
+  }
+  .long-btn svg{ width:16px; height:16px; }
+  .long-btn:hover{ text-decoration:none; border-color:#cfcfca; background:#fff;
+    transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,.07); }
+  .long-btn:active{ transform:translateY(0) scale(.98); }
+  .long-btn.cv{ color:#8a8780; cursor:default; }
+  .long-btn.cv:hover{ transform:none; box-shadow:none; border-color:var(--line); background:var(--card); }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+  .hero-actions .long-btn{ width:auto; padding:9px 16px; }
+  .hero img.photo{
+    width:160px; height:160px; border-radius:18px; object-fit:cover; flex:0 0 160px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+  }
+  .hero h1{ font-size:34px; letter-spacing:-.03em; line-height:1.1; }
+  .hero .title{ color:var(--accent); font-weight:600; margin:6px 0 14px; font-size:17px; }
+  .hero p{ color:#33363d; font-size:16.5px; max-width:560px; }
+  .hero .social{ margin-top:18px; display:flex; flex-wrap:wrap; gap:10px; }
+  .hero .social a{
+    display:inline-flex; align-items:center; gap:7px; font-size:14px; font-weight:500;
+    color:var(--ink); background:var(--card); border:1px solid var(--line);
+    padding:7px 13px; border-radius:9px;
+  }
+  .hero .social a{ position:relative; transition:transform .15s ease, border-color .2s, box-shadow .2s; }
+  .hero .social a:hover{ border-color:#cfcfca; text-decoration:none; background:#fff;
+    transform:translateY(-2px); box-shadow:0 6px 16px rgba(0,0,0,.07); }
+  .hero .social a:active{ transform:translateY(0) scale(.97); }
+  .hero .social a.icon-only{ padding:0; width:40px; height:40px; justify-content:center; color:var(--ink); }
+  .hero .social a.icon-only svg{ width:19px; height:19px; display:block; }
+  .hero .social a.copied::after{
+    content:"Copied!"; position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%);
+    background:var(--ink); color:#fff; font-size:11px; font-weight:600; padding:3px 8px;
+    border-radius:6px; white-space:nowrap; pointer-events:none;
+  }
+
+  /* scroll reveal */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in{ opacity:1; transform:none; }
+  @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+  @media(max-width:640px){ .hero{ flex-direction:column; gap:22px; padding:40px 0 32px; } .hero img.photo{ width:120px; height:120px; flex-basis:120px; } }
+
+  /* ===== Section ===== */
+  section{ padding:34px 0; border-top:1px solid var(--line); }
+  h2{ font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin-bottom:22px; font-weight:700; }
+
+  /* ===== News ===== */
+  .news{ display:flex; flex-direction:column; gap:12px; }
+  .news .row{ display:flex; gap:16px; font-size:15.5px; }
+  .news .date{ flex:0 0 96px; color:var(--muted); font-variant-numeric:tabular-nums; }
+  .news .row b{ font-weight:600; }
+
+  /* ===== Publications ===== */
+  .pub{ display:flex; gap:20px; padding:18px 0; border-bottom:1px solid var(--line); }
+  .pub:last-child{ border-bottom:none; }
+  .pub .thumb{
+    flex:0 0 250px; width:250px; height:160px; border-radius:10px; object-fit:contain;
+    background:#fff; border:1px solid var(--line); padding:8px;
+  }
+  .pub .venue{ display:inline-block; font-size:12.5px; font-weight:700; color:var(--accent);
+    background:var(--accent-soft); padding:2px 9px; border-radius:6px; margin-bottom:6px; }
+  .pub .venue.review{ color:#8a6d00; background:#fbf2cf; }
+  .pub h3{ font-size:17px; line-height:1.35; letter-spacing:-.01em; }
+  .pub .authors{ font-size:14.5px; color:#44474e; margin:5px 0 8px; }
+  .pub .authors .me{ font-weight:700; color:var(--ink); }
+  .pub .authors .eq{ color:var(--muted); font-size:13px; }
+  .pub .plinks{ display:flex; gap:14px; font-size:14px; }
+  .pub .plinks a{ font-weight:500; }
+  @media(max-width:640px){ .pub{ flex-direction:column; gap:12px; } .pub .thumb{ width:100%; height:210px; flex-basis:auto; } }
+
+  /* ===== Projects ===== */
+  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .proj{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; transition:.18s; }
+  .proj:hover{ border-color:#cfcfca; transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.06); }
+  .proj .when-tag{ font-size:12.5px; color:var(--accent); font-weight:600; margin-bottom:8px; }
+  .proj h3{ font-size:16.5px; margin-bottom:6px; }
+  .proj p{ font-size:14.5px; color:#44474e; }
+  .proj .tags{ margin-top:12px; display:flex; flex-wrap:wrap; gap:6px; }
+  .proj .tags span{ font-size:12px; color:var(--muted); background:#f1f0eb; padding:3px 9px; border-radius:6px; }
+  @media(max-width:640px){ .grid{ grid-template-columns:1fr; } }
+
+  /* ===== Experience ===== */
+  .xp{ display:flex; gap:16px; padding:14px 0; border-bottom:1px solid var(--line); }
+  .xp:last-child{ border-bottom:none; }
+  .xp .when{ flex:0 0 130px; color:var(--muted); font-size:14.5px; }
+  .xp .what b{ font-size:15.5px; }
+  .xp .what .org{ color:#44474e; font-size:14.5px; }
+  @media(max-width:640px){ .xp{ flex-direction:column; gap:2px; } }
+
+  /* ===== Footer ===== */
+  footer{ border-top:1px solid var(--line); padding:40px 0 60px; text-align:center; color:var(--muted); font-size:14px; }
+  footer .big{ font-size:22px; color:var(--ink); font-weight:600; margin-bottom:10px; letter-spacing:-.01em; }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="#">Sujung Hong</a>
+      <div class="links">
+        <a href="#news" class="hide">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Industry</a>
+        <a href="#experience" class="hide">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-left">
+        <img class="photo" src="profile.jpeg" alt="Sujung Hong">
+        <div class="social">
+          <div class="icon-row">
+            <a class="icon-only" href="mailto:sujung0914@yonsei.ac.kr" id="emailBtn" data-email="sujung0914@yonsei.ac.kr" title="Copy email" aria-label="Copy email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </a>
+            <a class="icon-only" href="https://github.com/hong-sujung" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.2 3.44 9.6 8.21 11.16.6.11.82-.25.82-.56 0-.28-.01-1.02-.02-2-3.34.71-4.04-1.58-4.04-1.58-.55-1.37-1.34-1.74-1.34-1.74-1.09-.73.08-.72.08-.72 1.21.08 1.84 1.22 1.84 1.22 1.07 1.8 2.81 1.28 3.5.98.11-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.84 0-1.29.47-2.34 1.24-3.17-.12-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.21a11.6 11.6 0 0 1 3-.4c1.02 0 2.05.13 3 .4 2.29-1.53 3.3-1.21 3.3-1.21.66 1.64.24 2.86.12 3.16.77.83 1.24 1.88 1.24 3.17 0 4.54-2.81 5.53-5.49 5.83.43.37.81 1.1.81 2.22 0 1.6-.01 2.89-.01 3.28 0 .31.21.68.83.56A12.01 12.01 0 0 0 24 12.29C24 5.78 18.63.5 12 .5z"/></svg>
+            </a>
+            <a class="icon-only" href="https://x.com/noonddudung2" target="_blank" rel="noopener" title="X / Twitter" aria-label="X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a class="icon-only" href="https://www.linkedin.com/in/sujunghong/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="status"><span class="dot"></span> Open to collaborations</div>
+      </div>
+      <div class="hero-main">
+        <h1>Sujung Hong</h1>
+        <div class="hero-actions">
+          <a class="long-btn" href="https://scholar.google.com/citations?user=T05O65YAAAAJ&hl=en" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+            <span>Google Scholar</span>
+          </a>
+          <span class="long-btn cv" role="link" aria-disabled="true" title="CV coming soon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg>
+            <span>CV <em style="font-style:normal;opacity:.6">(soon)</em></span>
+          </span>
+        </div>
+        <div class="title">M.S./Ph.D. Student · Medical Imaging &amp; Computer Vision Lab, Yonsei University</div>
+        <p>I'm an M.S./Ph.D. student at the <b>Medical Imaging &amp; Computer Vision (MICV) Lab</b>,
+           Yonsei University, advised by <b>Prof. Seong Jae Hwang</b>. I'm interested in
+           <b>visual representation learning</b> through generative models and in
+           <b>vision–language models</b> for understanding and reasoning.</p>
+      </div>
+    </header>
+
+    <!-- News -->
+    <section id="news">
+      <h2>News</h2>
+      <div class="news">
+        <div class="row"><span class="date">May 2026</span><div>Our paper on mitigating <b>mask prior drift</b> and <b>positional attention collapse</b> in large diffusion vision-language models was accepted to <b>ICML 2026</b>! 🎉</div></div>
+        <div class="row"><span class="date">Feb 2026</span><div>Our work on inference-time <b>CLIP embedding manipulation</b> for compositional text-to-image alignment was accepted to the <b>ICLR 2026 ReALM-GEN Workshop</b>.</div></div>
+        <div class="row"><span class="date">Oct 2024</span><div><b>DragText</b> was accepted to <b>WACV 2025</b> as an <b>Oral</b> presentation! 🎉</div></div>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <div class="pub">
+        <img class="thumb" src="icml.png" alt="ICML 2026 paper figure">
+        <div>
+          <span class="venue">ICML 2026</span>
+          <h3>Mitigating Mask Prior Drift and Positional Attention Collapse in Large Diffusion Vision-Language Models</h3>
+          <div class="authors"><span class="me">Sujung Hong</span>, Chanyong Yoon, Seong Jae Hwang</div>
+          <div class="plinks">
+            <a href="https://arxiv.org/abs/2605.14530" target="_blank" rel="noopener">arXiv</a>
+            <a href="https://github.com/hong-sujung/MPD-PAC" target="_blank" rel="noopener">Code</a>
+            <a href="https://hong-sujung.github.io/MPD-PAC/" target="_blank" rel="noopener">Project Page</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <img class="thumb" src="iclr.png" alt="ICLR 2026 Workshop paper figure">
+        <div>
+          <span class="venue">ICLR 2026 Workshop · ReALM-GEN</span>
+          <h3>Inference-Time CLIP Embedding Manipulation for Compositional Text-to-Image Alignment</h3>
+          <div class="authors"><span class="me">Sujung Hong</span><sup>*</sup>, Tae Eun Choi<sup>*</sup>, Youngjun Jun, Chanyong Yoon, Seong Jae Hwang
+            <span class="eq">(<sup>*</sup> equal contribution)</span></div>
+          <div class="plinks">
+            <a href="https://openreview.net/forum?id=btUpYATNHN" target="_blank" rel="noopener">OpenReview</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <img class="thumb" src="wacv.png" alt="DragText (WACV 2025) figure">
+        <div>
+          <span class="venue">WACV 2025 · Oral</span>
+          <h3>DragText: Rethinking Text Embedding in Point-based Image Editing</h3>
+          <div class="authors">Gayoon Choi, Taejin Jeong, <span class="me">Sujung Hong</span>, Seong Jae Hwang</div>
+          <div class="plinks">
+            <a href="https://arxiv.org/abs/2407.17843" target="_blank" rel="noopener">arXiv</a>
+            <a href="https://github.com/MICV-yonsei/DragText" target="_blank" rel="noopener">Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub">
+        <img class="thumb" src="tr.png" alt="Technical Report figure">
+        <div>
+          <span class="venue review">Technical Report</span>
+          <h3>Depth-Aware and Symmetric Spherical Mapping for Enhancing Semantic Correspondence</h3>
+          <div class="authors">Jaehoon Joo, <span class="me">Sujung Hong</span>, Kyobin Choo, Seong Jae Hwang</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Industry Collaborations</h2>
+      <div class="grid">
+        <div class="proj">
+          <div class="when-tag">2026 — present</div>
+          <h3>Samsung Electronics</h3>
+          <p>Generative model compression &amp; efficiency.</p>
+          <div class="tags"><span>Generative Models</span><span>Compression</span></div>
+        </div>
+        <div class="proj">
+          <div class="when-tag">2025</div>
+          <h3>AmorePacific</h3>
+          <p>Product anomaly detection and OCR for manufacturing quality control.</p>
+          <div class="tags"><span>Anomaly Detection</span><span>OCR</span></div>
+        </div>
+        <div class="proj">
+          <div class="when-tag">2024 — 2025</div>
+          <h3>LG Electronics</h3>
+          <p>Language model compression &amp; on-device efficiency.</p>
+          <div class="tags"><span>LLM</span><span>Compression</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2>Experience &amp; Education</h2>
+      <div class="xp"><div class="when">2024 — present</div><div class="what"><b>M.S./Ph.D. in Computer Science</b> · <span class="org">Medical Imaging &amp; Computer Vision Lab, Yonsei University</span></div></div>
+      <div class="xp"><div class="when">2020 — 2024</div><div class="what"><b>B.A. in Economics &amp; B.S. in Computer Science</b> · <span class="org">Yonsei University</span></div></div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="wrap">
+      <div><a href="mailto:sujung0914@yonsei.ac.kr">sujung0914@yonsei.ac.kr</a></div>
+      <div style="margin-top:14px">© 2026 Sujung Hong</div>
+    </div>
+  </footer>
+
+<script>
+  /* Scroll reveal — fade items up as they enter the viewport */
+  const items=[document.querySelector('.hero'),
+    ...document.querySelectorAll('section, .pub, .proj, .xp, .news .row')];
+  items.forEach((el,i)=>{
+    if(!el) return;
+    el.classList.add('reveal');
+    el.style.transitionDelay=(Math.min(i,6)*0.04)+'s';
+  });
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{ threshold:0.12, rootMargin:'0px 0px -8% 0px' });
+  items.forEach(el=> el && io.observe(el));
+
+  /* Active nav link based on scroll position */
+  const navLinks=[...document.querySelectorAll('nav .links a')];
+  const map={};
+  navLinks.forEach(a=>{ const id=a.getAttribute('href').slice(1); if(id) map[id]=a; });
+  const spy=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        navLinks.forEach(a=>a.classList.remove('active'));
+        const a=map[e.target.id]; if(a) a.classList.add('active');
+      }
+    });
+  },{ rootMargin:'-45% 0px -50% 0px' });
+  ['news','publications','projects','experience','contact'].forEach(id=>{
+    const el=document.getElementById(id); if(el) spy.observe(el);
+  });
+
+  /* Email button → copy to clipboard with feedback */
+  const emailBtn=document.getElementById('emailBtn');
+  if(emailBtn){
+    function copyText(text){
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        return navigator.clipboard.writeText(text);
+      }
+      return new Promise((res,rej)=>{
+        const ta=document.createElement('textarea');
+        ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        try{ document.execCommand('copy'); res(); }catch(e){ rej(e); }
+        document.body.removeChild(ta);
+      });
+    }
+    emailBtn.addEventListener('click',e=>{
+      e.preventDefault();
+      copyText(emailBtn.dataset.email).then(()=>{
+        emailBtn.classList.add('copied');
+        setTimeout(()=>emailBtn.classList.remove('copied'),1500);
+      }).catch(()=>{ window.location.href='mailto:'+emailBtn.dataset.email; });
+    });
+  }
+</script>
+</body>
+</html>
